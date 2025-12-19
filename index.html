@@ -56,7 +56,6 @@ body{
   50% { transform: translateY(-20px) rotate(10deg); }
 }
 
-/* Styling Nama di Atas Foto */
 .nama-ayang {
   font-size: 1.2rem;
   font-weight: 700;
@@ -65,15 +64,14 @@ body{
   text-shadow: 1px 1px 2px rgba(255, 105, 180, 0.2);
 }
 
-/* Bingkai Foto Potret */
 .foto-wrap {
-  width: 150px;
-  height: 200px;
-  border: 6px solid white;
-  border-radius: 15px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  width: 130px;
+  height: 170px;
+  border: 5px solid white;
+  border-radius: 12px;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.1);
   overflow: hidden;
-  margin-bottom: 15px;
+  margin: 10px auto;
   background: #eee;
   display: flex;
   align-items: center;
@@ -105,14 +103,14 @@ body{
 .center{
   width: 100%;
   max-width: 400px;
-  max-height: 85vh;
+  max-height: 90vh;
   display:flex;
   flex-direction:column;
   align-items:center;
   text-align:center;
   background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(10px);
-  padding: 25px;
+  padding: 20px;
   border-radius: 30px;
   border: 2px solid rgba(255, 255, 255, 0.8);
   box-shadow: 0 10px 30px rgba(255, 105, 180, 0.15);
@@ -121,27 +119,25 @@ body{
 h1, h2 {
   color: #ff4d94;
   margin-top: 0;
-  margin-bottom: 15px;
-  font-size: 1.4rem;
+  margin-bottom: 10px;
+  font-size: 1.3rem;
 }
 
 .btn{
-  padding:15px 25px;
+  padding:12px 20px;
   background: linear-gradient(135deg, #ff85b3 0%, #ff4d94 100%);
   color:white;
   border:none;
   border-radius:50px;
-  font-size:14px;
+  font-size: 13px;
   font-weight: bold;
   cursor:pointer;
   box-shadow: 0 5px 15px rgba(255, 77, 148, 0.3);
   transition: all 0.3s ease;
-  width: fit-content;
+  width: 100%;
 }
 
-.btn:active{
-  transform: scale(0.95);
-}
+.btn:active{ transform: scale(0.95); }
 
 .typing{
   white-space:pre-wrap;
@@ -151,22 +147,12 @@ h1, h2 {
   text-align: left;
   overflow-y: auto;
   width: 100%;
-  padding-right: 5px;
 }
-
-.typing::-webkit-scrollbar { width: 4px; }
-.typing::-webkit-scrollbar-thumb { background: #ffb3d1; border-radius: 10px; }
 
 .sketch{
-  width:80px;
-  margin-bottom:15px;
-}
-
-.bottom-right{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  z-index: 10;
+  width: 80px;
+  height: 80px;
+  margin-bottom: 10px;
 }
 
 .overlay{
@@ -195,13 +181,18 @@ h1, h2 {
   z-index: 110;
 }
 
-.from-left{ animation: slideIn 0.4s ease-out; }
-.from-right{ animation: slideIn 0.4s ease-out; }
+.bottom-right{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  z-index: 10;
+}
 
 @keyframes slideIn{
   from{opacity: 0; transform: translateY(20px);}
   to{opacity: 1; transform: translateY(0);}
 }
+.from-left, .from-right { animation: slideIn 0.4s ease-out; }
 </style>
 </head>
 
@@ -215,16 +206,13 @@ h1, h2 {
 
 <div class="page active" id="p1">
   <div class="center">
-    
     <div class="nama-ayang">Amelia Amanda</div>
-
     <div class="foto-wrap">
       <img src="foto-ayang.jpg" alt="Foto Amelia Amanda">
     </div>
-    
-    <div style="font-size: 40px; margin-bottom: 10px;">🐱</div>
+    <div style="font-size: 35px; margin-bottom: 5px;">🐱</div>
     <h1>What i think about my pretty girll</h1>
-    <button class="btn" onclick="go(2)">klik here</button>
+    <button class="btn" onclick="go(2)" style="width: auto;">klik here</button>
   </div>
 </div>
 
@@ -238,15 +226,21 @@ h1, h2 {
     <div class="typing" id="aboutText"></div>
   </div>
   <div class="bottom-right">
-    <button class="btn" onclick="go(3)">selanjutnya</button>
+    <button class="btn" onclick="go(3)" style="width: auto;">selanjutnya</button>
   </div>
 </div>
 
 <div class="page" id="p3">
-  <div class="center" style="background:none; border:none; box-shadow:none; backdrop-filter:none;">
-    <button class="btn" onclick="openLeft()" style="margin-bottom: 20px; width: 100%;">APA YANG AKU GAK SUKA DARI KAMU</button>
-    <div style="font-size: 24px; margin: 10px;">🐾</div>
-    <button class="btn" onclick="openRight()" style="width: 100%;">APA YANG KU SUKA DARI KAMU</button>
+  <div class="center">
+    <div class="foto-wrap">
+      <img src="muka-sedih.jpg" alt="Muka Sedih">
+    </div>
+    <button class="btn" onclick="openLeft()">APA KERESAHANKU KE KAMU</button>
+    <div style="font-size: 20px; margin: 10px;">✨</div>
+    <button class="btn" onclick="openRight()">HAL YANG KAMU LAKUIN DAN BIKIN AKU SENENG</button>
+    <div class="foto-wrap">
+      <img src="muka-seneng.jpg" alt="Muka Senang">
+    </div>
   </div>
 
   <div class="overlay from-left" id="leftBox">
@@ -266,12 +260,15 @@ h1, h2 {
   </div>
 
   <div class="bottom-right">
-    <button class="btn" onclick="go(4)">selanjutnya</button>
+    <button class="btn" onclick="go(4)" style="width: auto;">selanjutnya</button>
   </div>
 </div>
 
 <div class="page" id="p4">
   <div class="center">
+      <div class="foto-wrap">
+        <img src="foto-bareng.jpg" alt="Foto Bareng">
+      </div>
       <h2>INTINYA 💖</h2>
       <div class="typing" id="finalText"></div>
       <div style="font-size: 24px; margin-top: 15px;">🎀🐱🎀</div>
@@ -296,9 +293,7 @@ function type(el, text, speed = 25) {
   typingInterval = setInterval(() => {
     el.innerHTML += text[i];
     i++;
-    if (i >= text.length) {
-        clearInterval(typingInterval);
-    }
+    if (i >= text.length) clearInterval(typingInterval);
     el.scrollTop = el.scrollHeight;
   }, speed);
 }
@@ -334,13 +329,11 @@ function closeBox() {
   clearInterval(typingInterval);
 }
 
-const aboutTextFull = `Amelia Amanda namanya Dia adalah wanita paling cantik, imut, dan sweet yang pernah ku temui. Aku sangat beruntung bisa bertemu dengan dia, karna bagiku dia itu wanita pertama setelah ibuku yang bisa membuatku sangat mencintai seorang wanita. Dia itu orang nya lucu, humoris, aktif, dan dia juga pinter lohh. Tapi kadang kalo ada yg bikin mood nya jelek, dia juga suka tiba² marah-marah, suka tiba² sedih jugaa, walau kadang dia sedih dan marah nya bukan karna aku, tapi tetep aku juga yg kena imbas nya huhu T_T. Tapi gak papa aku tetep sayanggg banget sama dia. Tambahan dikit dia itu jago buat redain emosi atau sedih nya aku. Tapi aku suka sedih, karna kalo dia lagi emosi dan sedih, aku kadang gak bisa apa apa HUHUHU SEDIHH☹️. Pokok nya aku sayang banget sama diaa Love u Wupp🫶🫶`;
-
+const aboutTextFull = `Dia adalah wanita paling cantik, imut, dan sweet yang pernah ku temui. Aku sangat beruntung bisa bertemu dengan dia, karna bagi aku dia itu wanita pertama yang bisa bikin aku mencintainya banget setelah ibu ku. Dia itu orang nya lucu, humoris, aktif, dan dia juga pinter lohh. Tapi kadang kalo ada yg bikin mood nya jelek, dia juga suka tiba² marah-marah, suka tiba² sedih jugaa, walau kadang dia sedih dan marah nya bukan karna aku, tapi tetep aku juga yg kena imbas nya huhu T_T. Tapi gak papa aku tetep sayanggg banget sama dia. Tambahan dikit dia itu jago buat redain emosi atau sedih nya aku. Tapi aku suka sedih, karna kalo dia lagi emosi dan sedih, aku kadang gak bisa apa apa HUHUHU SEDIHH☹️. Pokok nya aku sayang banget sama diaa Love u Wupp🫶🫶`;
 const leftFull = `Ini bukan berarti aku gak suka sama kamu yaa. Tapi mungkin aku kesel ama gak suka kalo kamu lakuin\n\n1. Kalo kamu tiba tiba ilang gak ngasih kabar apa apa sama aku, dan nanti pas balik lagi, kamu biasa aja kayak gak terjadi apa apa. Padahal aku nungguin kabar dari kamuuu\n\n2. Ini entah kamu tuh sadar atau enggak. kamu tuu kayak suka tiba tiba gak nganggap aku ada gitu suka luas leos sendiri, tanpa sadar kalo ada aku gitu di samping kamu. Terus juga balik lagi sama kayak poin di awal, kadang kamu tu suka gak ngabarin aku, padahal aku suka banget denger apapun kabar dari kamuu. Aku sediii kalo kamu dah kek gitu\n\n3. Kalo kamu cuek ke aku. Kalo ini banyak kasus nya kayak yg tadi aku bilang di kampus, terus juga kalo lagi makan atau lagi bareng aku. Bisa gakkk aku minta inimah, jangan dulu maen hp gitu, kayak nikmatin dulu Quality Time nyaa. Boleh buka hp tapi buat hal penting aja gituu, atau gak kalo kita berdua juga lagi buka hp. jangan kayak lagi ngobrol tiba tiba scroll terus aku nya di diemin☹️☹️.\n\nDah mungkin itu aja sedikit keluh kesah aku hehe`;
-
 const rightFull = `Emmm aku bingung nii, soal nya banyak bangettt tapi yg paling utama ini sii.\n\n1. Kalo kamu pegang aku, kayak kamu elus aku kamu peyuk aku, kamu pat pat aku. Pokoknya love lenguage aku tuu physical touch banget. Nah aku paling suka kalo kamu gandeng tangan aku kayak di silang gituu hehe, terus juga kalo kamu peyuk aku di motor hehe (tapi jangan di seringin cubitt ituuuu😠☹️☹️)\n\n2. Kalo kamu ceritain atau gak ngabarin hal apa aja yang kamu lagi lakuin, apalagi di tambahin foto. Kayak kamu lagi jajan, kamu lagi kelas, kamu lagi istirahay, kamu lagi apapun itu lah. Nah aku suka banget kalo kamu ceritain kegiatan yang sedang kamu lakuinn, gak akan pernah bosen aku denger nya, sekalipun kegiatan nya random, kalo kamu kabarin ke aku. Aku pasti sukaa\n\n3. Kalo kamu lagi manja sama akuu, kayak kamu tiba tiba pengen di peyuk pengen di pat pat, terus nanya "kamu sayang aku wupp". Aku bakal seneng banget menjawab atau merespon kalo kamu lakuin itu tadi.\n\nMasih banyak sih kalo di sebutin, tapi itu yang paling ku sukaa hehe.`;
-
 const finalFull = `Hmmm intinya dari semua ini. Aku merasa beruntung banget bisa ketemu kamu, bisa bareng sama kamu, bisa cerita bareng kamu, bisa lakuin banyak hal bareng kamuu, karna aku belum pernah dapetin semua ini sebelum sebelum nya😔. Baru kali ini aku bisa mencintai orang sedalam ini, dan sebaliknya aku juga merasa di cintai sama seseorang, yang seseorang nya tuh adalah kamu. Aku cuma mau berterimakasih sama kamu buat semua inii, jangan pernah cape sama akuu yaa, maafin aku kalo aku kadang lakuin hal yg bikin kamu sakit hari. Maaf juga kalo aku belum bisa jadi cowo yg terbaik buat kamu, belum bisa treat kamu seperti apa yg kamu mau, belum bisa ngertiin kamu, dan belum bisa lakuin semua yang kamu mauu. Tapi aku bakal usahain semua itu biar bisa penuhin semua ituu okeee, karna Aku sayang banget sama kamu hehe. trimakasih ya kamu dah hadir di hidup aku, dan mau nerima akuu. LOVE YOU SAYANGGG❤`;
 </script>
 </body>
 </html>
+
