@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pretty Girl 💗</title>
+<title>I Love You Amelia 💖</title>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap');
@@ -15,160 +15,143 @@
 
 body{
   margin:0;
-  background-color: #ffe9f3;
+  background-color: #fff9fb;
   overflow:hidden;
   color: #4a4a4a;
   height: 100vh;
   width: 100vw;
 }
 
-.bg {
+/* Background Floating Aesthetic */
+.bg-container {
   position: fixed;
   inset: 0;
-  background: 
-    radial-gradient(circle at 20% 20%, rgba(255, 182, 193, 0.4) 0%, transparent 40%),
-    radial-gradient(circle at 80% 80%, rgba(255, 105, 180, 0.2) 0%, transparent 40%),
-    #fff0f6;
-  z-index: -1;
+  z-index: -2;
+  background: linear-gradient(to bottom, #fff9fb, #ffeef4);
+  overflow: hidden;
 }
 
-.nama-ayang {
-  font-size: 1.2rem;
+/* Dekorasi Random */
+.shape {
+  position: absolute;
+  filter: blur(1px);
+  opacity: 0.12;
+  pointer-events: none;
+  fill: #ff4d94;
+}
+
+/* Sidebar Galeri */
+#gallerySidebar {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 85%;
+  max-width: 350px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(15px);
+  z-index: 2000;
+  transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 5px 0 25px rgba(255, 182, 193, 0.3);
+  padding: 20px;
+  overflow-y: auto;
+}
+
+#gallerySidebar.open { left: 0; }
+
+.gallery-title {
+  font-size: 20px;
   font-weight: 700;
   color: #ff4d94;
-  margin-bottom: 10px;
+  text-align: center;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #ffe1ec;
+  padding-bottom: 10px;
 }
 
-.foto-wrap {
-  width: 130px;
-  height: 170px;
-  border: 5px solid white;
+.section-name {
+  font-weight: 700;
+  margin: 20px 0 10px;
+  color: #ff69b4;
+  font-size: 15px;
+  display: block;
+  border-left: 4px solid #ff4d94;
+  padding-left: 8px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.img-frame {
+  width: 100%;
+  aspect-ratio: 3/4;
+  border: 4px solid white;
   border-radius: 12px;
-  box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
   overflow: hidden;
-  margin: 10px auto;
-  background: #eee;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
+  background: #fff;
 }
 
-.foto-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+.img-frame img { width: 100%; height: 100%; object-fit: cover; }
 
-.page{
-  position:absolute;
-  width:100%;
-  height:100%;
-  display:none;
-  padding:20px;
-  overflow: hidden;
-}
-
-.page.active{
-  display:flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.center{
-  width: 100%;
-  max-width: 400px;
-  max-height: 90vh;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  text-align:center;
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(10px);
-  padding: 20px;
-  border-radius: 30px;
-  border: 2px solid rgba(255, 255, 255, 0.8);
-  box-shadow: 0 10px 30px rgba(255, 105, 180, 0.15);
-  position: relative; /* Penting untuk navigasi di dalam */
-}
-
-.btn{
-  padding:12px 20px;
-  background: linear-gradient(135deg, #ff85b3 0%, #ff4d94 100%);
-  color:white;
-  border:none;
-  border-radius:50px;
-  font-size: 13px;
-  font-weight: bold;
-  cursor:pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 10px rgba(255, 77, 148, 0.2);
-}
-
-.btn:active{ transform: scale(0.95); }
-
-.typing{
-  white-space:pre-wrap;
-  line-height:1.6;
-  font-size: 14px;
-  color: #555;
-  text-align: left;
-  overflow-y: auto;
-  width: 100%;
-  /* FITUR NYOBA: Biar teks tidak tertutup tombol */
-  padding-bottom: 80px; 
-}
-
-/* Tombol Navigasi */
-.bottom-right{
-  position:fixed;
-  bottom:25px;
-  right:25px;
-  z-index: 10;
-}
-
-.bottom-left{
-  position:fixed;
-  bottom:25px;
-  left:25px;
-  z-index: 10;
-}
-
-.btn-nav {
-  min-width: 90px;
-}
-
-.overlay{
-  position:fixed;
-  inset:0;
-  background: rgba(255, 230, 240, 0.95);
-  backdrop-filter:blur(8px);
-  padding:20px;
-  display:none;
-  z-index: 100;
-}
-
-.overlay.active{
-  display:flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.close{
-  position:absolute;
-  top:20px;
-  right:20px;
-  font-size:28px;
+.special-text {
+  grid-column: span 2;
+  text-align: center;
   color: #ff4d94;
-  cursor:pointer;
+  font-weight: bold;
+  padding: 10px 0;
+  font-size: 14px;
 }
 
-@keyframes slideIn{
-  from{opacity: 0; transform: translateY(20px);}
-  to{opacity: 1; transform: translateY(0);}
+/* Tombol Panah Kiri Atas */
+.btn-gallery-open {
+  position: fixed;
+  top: 25px;
+  left: 20px;
+  z-index: 1500;
+  background: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(255, 77, 148, 0.2);
+  cursor: pointer;
+  color: #ff4d94;
+  font-weight: bold;
+  border: 2px solid #ffe1ec;
 }
-.from-left, .from-right { animation: slideIn 0.4s ease-out; }
+
+.close-sidebar { float: right; cursor: pointer; font-size: 22px; color: #ff4d94; font-weight: bold; }
+
+/* Struktur Dasar Page */
+.page { position:absolute; width:100%; height:100%; display:none; padding:20px; overflow: hidden; }
+.page.active { display:flex; flex-direction: column; align-items: center; justify-content: center; }
+.center { width: 100%; max-width: 400px; max-height: 90vh; display:flex; flex-direction:column; align-items:center; text-align:center; background: rgba(255, 255, 255, 0.82); backdrop-filter: blur(10px); padding: 25px; border-radius: 30px; border: 2px solid white; box-shadow: 0 10px 30px rgba(255, 105, 180, 0.1); position: relative; }
+.foto-wrap { width: 130px; height: 170px; border: 5px solid white; border-radius: 12px; box-shadow: 0 8px 15px rgba(0,0,0,0.1); overflow: hidden; margin: 10px auto; background: #eee; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.foto-wrap img { width: 100%; height: 100%; object-fit: cover; }
+.btn { padding:12px 25px; background: linear-gradient(135deg, #ff85b3 0%, #ff4d94 100%); color:white; border:none; border-radius:50px; font-size: 13px; font-weight: bold; cursor:pointer; box-shadow: 0 4px 15px rgba(255, 77, 148, 0.3); }
+.typing { white-space:pre-wrap; line-height:1.6; font-size: 14px; color: #555; text-align: left; overflow-y: auto; width: 100%; padding-bottom: 80px; }
+.bottom-right, .bottom-left { position:fixed; bottom:25px; z-index: 10; }
+.bottom-right { right:25px; } .bottom-left { left:25px; }
+.btn-nav { min-width: 90px; }
+
+/* Letter Section */
+.letter-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.4); display: none; justify-content: center; align-items: center; z-index: 3000; backdrop-filter: blur(8px); }
+.envelope { position: relative; width: 300px; height: 200px; background: #ff85b3; border-radius: 0 0 10px 10px; box-shadow: 0 15px 35px rgba(0,0,0,0.2); cursor: pointer; }
+.envelope::before { content: ""; position: absolute; top: -100px; left: 0; border-left: 150px solid transparent; border-right: 150px solid transparent; border-bottom: 100px solid #ff85b3; z-index: 2; transition: 0.5s; transform-origin: bottom; }
+.envelope.open::before { transform: rotateX(180deg); z-index: 0; }
+.letter-content { position: absolute; bottom: 0; left: 5px; right: 5px; background: white; padding: 25px 20px; border-radius: 10px; height: 0; opacity: 0; overflow-y: auto; transition: 0.8s all ease; z-index: 1; text-align: center; }
+.envelope.open .letter-content { height: 380px; opacity: 1; transform: translateY(-160px); box-shadow: 0 -10px 30px rgba(0,0,0,0.1); }
+
+.overlay { position:fixed; inset:0; background: rgba(255, 230, 240, 0.98); display:none; z-index: 100; align-items: center; justify-content: center; }
+.overlay.active { display:flex; }
+.close-btn { position:absolute; top:20px; right:20px; font-size:25px; color:#ff4d94; cursor:pointer; }
+@keyframes bounce { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.08); } }
 </style>
 </head>
 
@@ -178,16 +161,63 @@ body{
   <source src="penjagahati.mp3" type="audio/mpeg">
 </audio>
 
-<div class="bg"></div>
+<div class="bg-container" id="bgContainer"></div>
+
+<button class="btn-gallery-open" id="galleryToggle" onclick="toggleSidebar()"> > </button>
+
+<div id="gallerySidebar">
+  <span class="close-sidebar" onclick="toggleSidebar()">✖</span>
+  <div class="gallery-title">Foto-Foto Kita</div>
+
+  <span class="section-name">VPJ</span>
+  <div class="gallery-grid">
+    <div class="img-frame"><img src="vpj1.jpg"></div>
+    <div class="img-frame"><img src="vpj2.jpg"></div>
+  </div>
+
+  <span class="section-name">MOKOPI</span>
+  <div class="gallery-grid">
+    <div class="img-frame"><img src="mokopi1.jpg"></div>
+    <div class="img-frame"><img src="mokopi2.jpg"></div>
+    <div class="special-text">Spesial days 💝</div>
+    <div class="img-frame"><img src="mokopi3.jpg"></div>
+    <div class="img-frame"><img src="mokopi4.jpg"></div>
+  </div>
+
+  <span class="section-name">Sumaba</span>
+  <div class="gallery-grid">
+    <div class="img-frame"><img src="sumaba1.jpg"></div>
+    <div class="img-frame"><img src="sumaba2.jpg"></div>
+    <div class="img-frame"><img src="sumaba3.jpg"></div>
+    <div class="img-frame"><img src="sumaba4.jpg"></div>
+  </div>
+
+  <span class="section-name">Sesar Lembang Caffe</span>
+  <div class="gallery-grid">
+    <div class="img-frame"><img src="lembang1.jpg"></div>
+    <div class="img-frame"><img src="lembang2.jpg"></div>
+    <div class="img-frame"><img src="lembang3.jpg"></div>
+    <div class="img-frame"><img src="lembang4.jpg"></div>
+  </div>
+
+  <span class="section-name">Braga</span>
+  <div class="gallery-grid">
+    <div class="img-frame"><img src="braga1.jpg"></div>
+    <div class="img-frame"><img src="braga2.jpg"></div>
+    <div class="img-frame"><img src="braga3.jpg"></div>
+    <div class="img-frame"><img src="braga4.jpg"></div>
+  </div>
+  <div style="height: 50px;"></div>
+</div>
 
 <div class="page active" id="p1">
   <div class="center">
-    <div class="nama-ayang">Amelia Amanda</div>
+    <div style="font-weight: 700; color: #ff4d94; margin-bottom: 10px;">Amelia Amanda</div>
     <div class="foto-wrap">
       <img src="foto-ayang.jpg" alt="Foto Amelia Amanda">
     </div>
-    <div style="font-size: 35px; margin-bottom: 5px;">🐱</div>
-    <h1>What i think about my pretty girll</h1>
+    <div style="font-size: 35px;">🐱</div>
+    <h1 style="color:#ff4d94; font-size: 1.3rem;">What i think about my pretty girll</h1>
     <button class="btn btn-nav" onclick="go(2)">klik here</button>
   </div>
 </div>
@@ -197,141 +227,139 @@ body{
     <div class="foto-wrap">
       <img src="foto-ayangg.jpg" alt="About Her Photo">
     </div>
-    <h2>About Her</h2>
+    <h2 style="color:#ff4d94;">About Her</h2>
     <div class="typing" id="aboutText"></div>
   </div>
-  <div class="bottom-left">
-    <button class="btn btn-nav" onclick="go(1)">back</button>
-  </div>
-  <div class="bottom-right">
-    <button class="btn btn-nav" onclick="go(3)">selanjutnya</button>
-  </div>
+  <div class="bottom-left"><button class="btn btn-nav" onclick="go(1)">back</button></div>
+  <div class="bottom-right"><button class="btn btn-nav" onclick="go(3)">selanjutnya</button></div>
 </div>
 
 <div class="page" id="p3">
   <div class="center">
-    <div class="foto-wrap">
-      <img src="muka-sedih.jpg" alt="Muka Sedih">
-    </div>
-    <button class="btn" style="width: 100%;" onclick="openLeft()">APA KERESAHANKU KE KAMU</button>
-    <div style="font-size: 20px; margin: 5px;">✨</div>
-    <button class="btn" style="width: 100%;" onclick="openRight()">HAL YANG KAMU LAKUIN DAN BIKIN AKU SENENG</button>
-    <div class="foto-wrap">
-      <img src="muka-seneng.jpg" alt="Muka Senang">
-    </div>
+    <div class="foto-wrap"><img src="muka-sedih.jpg"></div>
+    <button class="btn" style="width: 100%; margin-bottom:10px;" onclick="openOverlay('leftBox', 'leftText', leftFull)">APA KERESAHANKU KE KAMU</button>
+    <button class="btn" style="width: 100%;" onclick="openOverlay('rightBox', 'rightText', rightFull)">HAL YANG KAMU LAKUIN DAN BIKIN AKU SENENG</button>
+    <div class="foto-wrap"><img src="muka-seneng.jpg"></div>
   </div>
+  <div class="bottom-left"><button class="btn btn-nav" onclick="go(2)">back</button></div>
+  <div class="bottom-right"><button class="btn btn-nav" onclick="go(4)">selanjutnya</button></div>
+</div>
 
-  <div class="overlay from-left" id="leftBox">
-    <div class="close" onclick="closeBox()">✖</div>
-    <div class="center">
-        <h2>Keresahanku..</h2>
-        <div class="typing" id="leftText"></div>
-    </div>
-  </div>
-
-  <div class="overlay from-right" id="rightBox">
-    <div class="close" onclick="closeBox()">✖</div>
-    <div class="center">
-        <h2>Yang Aku Suka..</h2>
-        <div class="typing" id="rightText"></div>
-    </div>
-  </div>
-
-  <div class="bottom-left">
-    <button class="btn btn-nav" onclick="go(2)">back</button>
-  </div>
-  <div class="bottom-right">
-    <button class="btn btn-nav" onclick="go(4)">selanjutnya</button>
-  </div>
+<div id="leftBox" class="overlay">
+  <div class="close-btn" onclick="closeOverlay()">✖</div>
+  <div class="center"><h2>Keresahanku..</h2><div class="typing" id="leftText"></div></div>
+</div>
+<div id="rightBox" class="overlay">
+  <div class="close-btn" onclick="closeOverlay()">✖</div>
+  <div class="center"><h2>Yang Aku Suka..</h2><div class="typing" id="rightText"></div></div>
 </div>
 
 <div class="page" id="p4">
   <div class="center">
-      <div class="foto-wrap">
-        <img src="foto-bareng.jpg" alt="Foto Bareng">
-      </div>
-      <h2>INTINYA 💖</h2>
+      <div class="foto-wrap"><img src="foto-bareng.jpg"></div>
+      <h2 style="color:#ff4d94;">INTINYA 💖</h2>
       <div class="typing" id="finalText"></div>
-      <div style="font-size: 24px; margin-top: 10px;">🎀🐱🎀</div>
+      <button id="surpriseBtn" class="btn" style="display:none; animation: bounce 2s infinite;" onclick="showLetter()">Ada Pesan Buat Kamu 💌</button>
   </div>
-  <div class="bottom-left">
-    <button class="btn btn-nav" onclick="go(3)">back</button>
+  <div class="bottom-left"><button class="btn btn-nav" onclick="go(3)">back</button></div>
+</div>
+
+<div class="letter-overlay" id="letterOverlay">
+  <div class="envelope" id="mainEnvelope" onclick="openLetter()">
+    <div class="letter-content" id="letterBody">
+      <h3 style="color:#ff4d94;">Untuk Amelia Amanda ❤️</h3>
+      <p style="font-size: 14px; color: #555; line-height: 1.6; text-align: left;">
+        Makasih ya udah mau baca sampai sini. Aku cuma mau bilang kalau kehadiran kamu itu hal terindah di hidup aku. <br><br>
+        Tetap jadi Amelia yang aku kenal ya, yang ceria dan selalu bikin aku jatuh cinta setiap harinya.<br><br>
+        <b>I Love You More Than Words Can Say! 🎀</b>
+      </p>
+      <button class="btn" onclick="document.getElementById('letterOverlay').style.display='none'" style="margin-top:15px;">Tutup & Peyuk aku🤗</button>
+    </div>
   </div>
 </div>
 
 <script>
-let typingInterval;
-const hasFinishedTyping = {
-  aboutText: false,
-  finalText: false,
-  leftText: false,
-  rightText: false
-};
+// Fungsi untuk membuat elemen background random
+function createBgElements() {
+  const container = document.getElementById('bgContainer');
+  const pawPath = "M10 5c-1.657 0-3 1.343-3 3s1.343 3 3 3 3-1.343 3-3-1.343-3-3-3zm12 0c-1.657 0-3 1.343-3 3s1.343 3 3 3 3-1.343 3-3-1.343-3-3-3zm-6 8c-3.314 0-6 2.686-6 6s2.686 6 6 6 6-2.686 6-6-2.686-6-6-6z";
+  const heartPath = "M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z";
 
-function putarMusik() {
-  const music = document.getElementById('bgMusic');
-  if (music && music.paused) {
-    music.play().catch(err => console.log("Musik tertunda"));
+  for (let i = 0; i < 25; i++) {
+    const isPaw = Math.random() > 0.4;
+    const size = Math.floor(Math.random() * 40) + 20;
+    const x = Math.random() * 100;
+    const y = Math.random() * 100;
+    const rot = Math.random() * 360;
+    const opacity = (Math.random() * 0.1) + 0.05;
+    
+    const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    svg.setAttribute("viewBox", "0 0 24 24");
+    svg.classList.add("shape");
+    svg.style.width = size + "px";
+    svg.style.left = x + "%";
+    svg.style.top = y + "%";
+    svg.style.transform = `rotate(${rot}deg)`;
+    svg.style.opacity = opacity;
+    
+    const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    path.setAttribute("d", isPaw ? pawPath : heartPath);
+    svg.appendChild(path);
+    container.appendChild(svg);
   }
 }
+createBgElements();
 
-function type(el, text, speed = 25) {
+window.onblur = () => document.title = "Balik dong, kangen tau! 🥺";
+window.onfocus = () => document.title = "I Love You Amelia 💖";
+
+let typingInterval;
+const hasFinished = { aboutText:false, finalText:false, leftText:false, rightText:false };
+
+function type(id, text) {
+  const el = document.getElementById(id);
   if (!el) return;
   clearInterval(typingInterval);
-  
-  if (hasFinishedTyping[el.id]) {
-    el.innerHTML = text;
-    return;
-  }
-
-  el.innerHTML = '';
-  let i = 0;
+  if (hasFinished[id]) { el.innerHTML = text; if(id==='finalText') document.getElementById('surpriseBtn').style.display='block'; return; }
+  el.innerHTML = ''; let i = 0;
   typingInterval = setInterval(() => {
-    el.innerHTML += text[i];
-    i++;
-    if (i >= text.length) {
-      clearInterval(typingInterval);
-      hasFinishedTyping[el.id] = true;
+    el.innerHTML += text[i]; i++;
+    if (i >= text.length) { 
+        clearInterval(typingInterval); hasFinished[id] = true; 
+        if(id==='finalText') document.getElementById('surpriseBtn').style.display='block';
     }
     el.scrollTop = el.scrollHeight;
-  }, speed);
+  }, 30);
 }
 
 function go(n) {
-  putarMusik();
+  const music = document.getElementById('bgMusic'); if(music.paused) music.play().catch(e=>{});
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  const targetPage = document.getElementById('p' + n);
-  if (targetPage) targetPage.classList.add('active');
-
-  if (n === 2) {
-    type(document.getElementById('aboutText'), aboutTextFull);
-  } else if (n === 4) {
-    type(document.getElementById('finalText'), finalFull);
-  } else {
-    clearInterval(typingInterval);
-  }
+  document.getElementById('p'+n).classList.add('active');
+  const toggle = document.getElementById('galleryToggle');
+  if(n > 1) { toggle.style.display = 'flex'; } else { toggle.style.display = 'none'; }
+  if(n===2) type('aboutText', aboutTextFull);
+  if(n===4) type('finalText', finalFull);
 }
 
-function openLeft() {
-  document.getElementById('leftBox').classList.add('active');
-  type(document.getElementById('leftText'), leftFull);
+function openOverlay(boxId, textId, content) {
+  document.getElementById(boxId).classList.add('active');
+  type(textId, content);
 }
 
-function openRight() {
-  document.getElementById('rightBox').classList.add('active');
-  type(document.getElementById('rightText'), rightFull);
-}
-
-function closeBox() {
-  document.getElementById('leftBox').classList.remove('active');
-  document.getElementById('rightBox').classList.remove('active');
+function closeOverlay() {
+  document.querySelectorAll('.overlay').forEach(o => o.classList.remove('active'));
   clearInterval(typingInterval);
 }
 
+function showLetter() { document.getElementById('letterOverlay').style.display = 'flex'; }
+function openLetter() { document.getElementById('mainEnvelope').classList.add('open'); }
+function toggleSidebar() { document.getElementById('gallerySidebar').classList.toggle('open'); }
+
 const aboutTextFull = `Amelia Amanda namanya. Dia adalah wanita paling cantik, imut, dan sweet yang pernah ku temui. Aku sangat beruntung bisa bertemu dengan dia, karna bagiku dia itu wanita pertama setelah ibuku yang bisa membuatku sangat mencintai seorang wanita. Dia itu orang nya lucu, humoris, aktif, dan dia juga pinter lohh. Tapi kadang kalo ada yg bikin mood nya jelek, dia juga suka tiba² marah-marah, suka tiba² sedih jugaa, walau kadang dia sedih dan marah nya bukan karna aku, tapi tetep aku juga yg kena imbas nya huhu T_T. Tapi gak papa aku tetep sayanggg banget sama dia kok. Tambahan dikit dia itu jago buat redain emosi atau sedih nya aku. Tapi aku suka sedih, karna kalo dia lagi emosi dan sedih, aku kadang gak bisa apa apa HUHUHU SEDIHH☹️. Pokok nya aku sayang banget sama diaa Love u Wupp🫶🫶`;
-const leftFull = `Ini bukan berarti aku gak suka sama kamu yaa. Tapi mungkin aku kesel ama gak suka kalo kamu lakuin\n\n1. Kalo kamu tiba tiba ilang gak ngasih kabar apa apa sama aku, dan nanti pas balik lagi, kamu biasa aja kayak gak terjadi apa apa. Padahal aku nungguin kabar dari kamuuu\n\n2. Ini entah kamu tuh sadar atau enggak. kamu tuu kayak suka tiba tiba gak nganggap aku ada gitu suka luas leos sendiri, tanpa sadar kalo ada aku gitu di samping kamu. Terus juga balik lagi sama kayak poin di awal, kadang kamu tu suka gak ngabarin aku, padahal aku suka banget denger apapun kabar dari kamuu. Aku sediii kalo kamu dah kek gitu\n\n3. Kalo kamu cuek ke aku. Kalo ini banyak kasus nya kayak yg tadi aku bilang di kampus, terus juga kalo lagi makan atau lagi bareng aku. Bisa gakkk aku minta inimah, jangan dulu maen hp gitu, kayak nikmatin dulu Quality Time nyaa. Boleh buka hp tapi buat hal penting aja gituu, atau gak kalo kita berdua juga lagi buka hp. jangan kayak lagi ngobrol tiba tiba scroll terus aku nya di diemin☹️☹️.\n\nDah mungkin itu aja sedikit keluh kesah aku hehe`;
-const rightFull = `Emmm aku bingung nii, soal nya banyak bangettt tapi yg paling utama ini sii.\n\n1. Kalo kamu pegang aku, kayak kamu elus aku kamu peyuk aku, kamu pat pat aku. Pokoknya love lenguage aku tuu physical touch banget. Nah aku paling suka kalo kamu gandeng tangan aku kayak di silang gituu hehe, terus juga kalo kamu peyuk aku di motor hehe (tapi jangan di seringin cubitt ituuuu😠☹️☹️)\n\n2. Kalo kamu ceritain atau gak ngabarin hal apa aja yang kamu lagi lakuin, apalagi di tambahin foto. Kayak kamu lagi jajan, kamu lagi kelas, kamu lagi istirahat, kamu lagi apapun itu lah. Nah aku suka banget kalo kamu ceritain kegiatan yang sedang kamu lakuinn, gak akan pernah bosen aku denger nya, sekalipun kegiatan nya random, kalo kamu kabarin ke aku. Aku pasti sukaa\n\n3. Kalo kamu lagi manja sama akuu, kayak kamu tiba tiba pengen di peyuk pengen di pat pat, terus nanya "kamu sayang aku wupp". Aku bakal seneng banget menjawab atau merespon kalo kamu lakuin itu tadi.\n\nMasih banyak sih kalo di sebutin, tapi itu yang paling ku sukaa hehe.`;
-const finalFull = `Hmmm intinya dari semua ini. Aku merasa beruntung banget bisa ketemu kamu, bisa bareng sama kamu, bisa cerita bareng kamu, bisa lakuin banyak hal bareng kamuu, karna aku belum pernah dapetin semua ini sebelum sebelum nya😔. Baru kali ini aku bisa mencintai orang sedalam ini, dan sebaliknya aku juga merasa di cintai sama seseorang, yang seseorang nya tuh adalah kamu. Aku cuma mau berterimakasih sama kamu buat semua inii, jangan pernah cape sama akuu yaa, maafin aku kalo aku kadang lakuin hal yg bikin kamu sakit hati. Maaf juga kalo aku belum bisa jadi cowo yg terbaik buat kamu, belum bisa treat kamu seperti apa yg kamu mau, belum bisa ngertiin kamu, dan belum bisa lakuin semua yang kamu mauu. Tapi aku bakal usahain semua itu biar bisa penuhin semua ituu okeee, karna Aku sayang banget sama kamu hehe. trimakasih ya kamu dah hadir di hidup aku, dan mau nerima akuu. LOVE YOU SAYANGGG❤`;
+const leftFull = `Ini bukan berarti aku gak suka sama kamu yaa. Tapi mungkin aku kesel ama gak suka kalo kamu lakuin\n\n1. Kalo kamu tiba tiba ilang gak ngasih kabar apa apa sama aku, dan nanti pas balik lagi, kamu biasa aja kayak gak terjadi apa apa. Padahal aku nungguin kabar dari kamuuu\n\n2. Ini entah kamu tuh sadar atau enggak. kamu tuu kayak suka tiba tiba gak nganggap aku ada gitu suka luas leos sendiri, tanpa sadar kalo ada aku gitu di samping kamu. Terus juga balik lagi sama kayak poin di awal, kadang kamu tu suka gak ngabarin aku, padahal aku suka banget denger apapun kabar dari kamuu. Aku sediii kalo kamu dah kek gitu\n\n3. Kalo kamu cuek ke aku. Kalo ini banyak kasus nya kayak yg tadi aku bilang di kampus, terus juga kalo lagi makan atau lagi bareng aku. Bisa gakkk aku minta inimah, jangan dulu maen hp gitu, kayak nikmatin dulu Quality Time nyaa. Boleh buka hp buat hal penting aja gituu, atau gak kalo kita berdua juga lagi buka hp. jangan kayak lagi ngobrol tiba tiba scroll terus aku nya di diemin☹️☹️.\n\nDah mungkin itu aja sedikit keluh kesah aku hehe`;
+const rightFull = `Emmm aku bingung nii, soal nya banyak bangettt tapi yg paling utama ini sii.\n\n1. Kalo kamu pegang aku, kayak kamu elus aku kamu peyuk aku, kamu pat pat aku. Pokoknya love lenguage aku tuu physical touch banget. Nah aku paling suka kalo kamu gandeng tangan aku kayak di silang gituu hehe, terus juga kalo kamu peyuk aku di motor hehe (tapi jangan di seringin cubitt ituuuu😠☹️☹️)\n\n2. Kalo kamu ceritain atau gak ngabarin hal apa aja yang kamu lagi lakuin, apalagi di tambahin foto. Kayak kamu lagi jajan, kamu lagi kelas, kamu lagi istirahay, kamu lagi apapun itu lah. Nah aku suka banget kalo kamu ceritain kegiatan yang sedang kamu lakuinn, gak akan pernah bosen aku denger nya, sekalipun kegiatan nya random, kalo kamu kabarin ke aku. Aku pasti sukaa\n\n3. Kalo kamu lagi manja sama akuu, kayak kamu tiba tiba pengen di peyuk pengen di pat pat, terus nanya "kamu sayang aku wupp". Aku bakal seneng banget menjawab atau merespon kalo kamu lakuin itu tadi.\n\nMasih banyak sih kalo di sebutin, tapi itu yang paling ku sukaa hehe.`;
+const finalFull = `Hmmm intinya dari semua ini. Aku merasa beruntung banget bisa ketemu kamu, bisa bareng sama kamu, bisa cerita bareng kamu, bisa lakuin banyak hal bareng kamuu, karna aku belum pernah dapetin semua ini sebelum sebelum nya😔. Baru kali ini aku bisa mencintai orang sedalam ini, dan sebaliknya aku juga merasa di cintai sama seseorang, yang seseorang nya tuh adalah kamu. Aku cuma mau berterimakasih sama kamu buat semua inii, jangan pernah cape sama akuu yaa, maafin aku kalo aku kadang lakuin hal yg bikin kamu sakit hari. Maaf juga kalo aku belum bisa jadi cowo yg terbaik buat kamu, belum bisa treat kamu seperti apa yg kamu mau, belum bisa ngertiin kamu, dan belum bisa lakuin semua yang kamu mauu. Tapi aku bakal usahain semua itu biar bisa penuhin semua ituu okeee, karna Aku sayang banget sama kamu hehe. trimakasih ya kamu dah hadir di hidup aku, dan mau nerima akuu. LOVE YOU SAYANGGG❤`;
 </script>
 </body>
 </html>
