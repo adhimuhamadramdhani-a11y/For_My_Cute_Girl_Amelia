@@ -31,7 +31,6 @@ body{
   overflow: hidden;
 }
 
-/* Dekorasi Random */
 .shape {
   position: absolute;
   filter: blur(1px);
@@ -56,97 +55,43 @@ body{
   padding: 20px;
   overflow-y: auto;
 }
-
 #gallerySidebar.open { left: 0; }
 
-.gallery-title {
-  font-size: 20px;
-  font-weight: 700;
-  color: #ff4d94;
-  text-align: center;
-  margin-bottom: 20px;
-  border-bottom: 2px solid #ffe1ec;
-  padding-bottom: 10px;
-}
-
-.section-name {
-  font-weight: 700;
-  margin: 20px 0 10px;
-  color: #ff69b4;
-  font-size: 15px;
-  display: block;
-  border-left: 4px solid #ff4d94;
-  padding-left: 8px;
-}
-
-.gallery-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-}
-
-.img-frame {
-  width: 100%;
-  aspect-ratio: 3/4;
-  border: 4px solid white;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-  overflow: hidden;
-  background: #fff;
-}
-
+.gallery-title { font-size: 20px; font-weight: 700; color: #ff4d94; text-align: center; margin-bottom: 20px; border-bottom: 2px solid #ffe1ec; padding-bottom: 10px; }
+.section-name { font-weight: 700; margin: 20px 0 10px; color: #ff69b4; font-size: 15px; display: block; border-left: 4px solid #ff4d94; padding-left: 8px; }
+.gallery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.img-frame { width: 100%; aspect-ratio: 3/4; border: 4px solid white; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.08); overflow: hidden; background: #fff; }
 .img-frame img { width: 100%; height: 100%; object-fit: cover; }
-
-.special-text {
-  grid-column: span 2;
-  text-align: center;
-  color: #ff4d94;
-  font-weight: bold;
-  padding: 10px 0;
-  font-size: 14px;
-}
-
-/* Tombol Panah Kiri Atas */
-.btn-gallery-open {
-  position: fixed;
-  top: 25px;
-  left: 20px;
-  z-index: 1500;
-  background: white;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 12px rgba(255, 77, 148, 0.2);
-  cursor: pointer;
-  color: #ff4d94;
-  font-weight: bold;
-  border: 2px solid #ffe1ec;
-}
-
+.btn-gallery-open { position: fixed; top: 25px; left: 20px; z-index: 1500; background: white; width: 40px; height: 40px; border-radius: 50%; display: none; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(255, 77, 148, 0.2); cursor: pointer; color: #ff4d94; font-weight: bold; border: 2px solid #ffe1ec; }
 .close-sidebar { float: right; cursor: pointer; font-size: 22px; color: #ff4d94; font-weight: bold; }
 
-/* Struktur Dasar Page */
+/* Page Structure */
 .page { position:absolute; width:100%; height:100%; display:none; padding:20px; overflow: hidden; }
 .page.active { display:flex; flex-direction: column; align-items: center; justify-content: center; }
 .center { width: 100%; max-width: 400px; max-height: 90vh; display:flex; flex-direction:column; align-items:center; text-align:center; background: rgba(255, 255, 255, 0.82); backdrop-filter: blur(10px); padding: 25px; border-radius: 30px; border: 2px solid white; box-shadow: 0 10px 30px rgba(255, 105, 180, 0.1); position: relative; }
 .foto-wrap { width: 130px; height: 170px; border: 5px solid white; border-radius: 12px; box-shadow: 0 8px 15px rgba(0,0,0,0.1); overflow: hidden; margin: 10px auto; background: #eee; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 .foto-wrap img { width: 100%; height: 100%; object-fit: cover; }
-.btn { padding:12px 25px; background: linear-gradient(135deg, #ff85b3 0%, #ff4d94 100%); color:white; border:none; border-radius:50px; font-size: 13px; font-weight: bold; cursor:pointer; box-shadow: 0 4px 15px rgba(255, 77, 148, 0.3); }
+.btn { padding:12px 25px; background: linear-gradient(135deg, #ff85b3 0%, #ff4d94 100%); color:white; border:none; border-radius:50px; font-size: 13px; font-weight: bold; cursor:pointer; box-shadow: 0 4px 15px rgba(255, 77, 148, 0.3); transition: 0.3s; }
 .typing { white-space:pre-wrap; line-height:1.6; font-size: 14px; color: #555; text-align: left; overflow-y: auto; width: 100%; padding-bottom: 80px; }
 .bottom-right, .bottom-left { position:fixed; bottom:25px; z-index: 10; }
 .bottom-right { right:25px; } .bottom-left { left:25px; }
 .btn-nav { min-width: 90px; }
 
-/* Letter Section */
-.letter-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.4); display: none; justify-content: center; align-items: center; z-index: 3000; backdrop-filter: blur(8px); }
-.envelope { position: relative; width: 300px; height: 200px; background: #ff85b3; border-radius: 0 0 10px 10px; box-shadow: 0 15px 35px rgba(0,0,0,0.2); cursor: pointer; }
-.envelope::before { content: ""; position: absolute; top: -100px; left: 0; border-left: 150px solid transparent; border-right: 150px solid transparent; border-bottom: 100px solid #ff85b3; z-index: 2; transition: 0.5s; transform-origin: bottom; }
-.envelope.open::before { transform: rotateX(180deg); z-index: 0; }
-.letter-content { position: absolute; bottom: 0; left: 5px; right: 5px; background: white; padding: 25px 20px; border-radius: 10px; height: 0; opacity: 0; overflow-y: auto; transition: 0.8s all ease; z-index: 1; text-align: center; }
-.envelope.open .letter-content { height: 380px; opacity: 1; transform: translateY(-160px); box-shadow: 0 -10px 30px rgba(0,0,0,0.1); }
+/* REVISI LETTER SECTION */
+.letter-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); display: none; justify-content: center; align-items: center; z-index: 3000; backdrop-filter: blur(8px); }
+.envelope-wrapper { position: relative; transition: transform 0.8s ease; transform: translateY(0); display: flex; justify-content: center; align-items: center; }
+.envelope-wrapper.shifted { transform: translateY(150px); }
+
+.envelope { position: relative; width: 300px; height: 200px; background: #ff85b3; border-radius: 0 0 10px 10px; box-shadow: 0 15px 35px rgba(0,0,0,0.2); cursor: pointer; z-index: 2; }
+.envelope::before { content: ""; position: absolute; top: -100px; left: 0; border-left: 150px solid transparent; border-right: 150px solid transparent; border-bottom: 100px solid #ff85b3; z-index: 4; transition: 0.5s; transform-origin: bottom; }
+.envelope.open::before { transform: rotateX(180deg); z-index: 1; }
+
+.stamp { position: absolute; top: -20px; left: 50%; transform: translateX(-50%); width: 60px; height: 60px; background: #ffd700; border: 3px dashed #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #ff4d94; font-weight: bold; font-size: 12px; z-index: 10; animation: pulse 1.5s infinite; }
+@keyframes pulse { 0%, 100% { transform: translateX(-50%) scale(1); } 50% { transform: translateX(-50%) scale(1.1); } }
+
+.letter-content { position: absolute; bottom: 10px; left: 10px; right: 10px; background: white; padding: 25px 20px; border-radius: 10px; height: 0; opacity: 0; overflow-y: auto; transition: 0.8s all ease; z-index: 3; text-align: center; }
+/* Kertas tidak lagi ngelayang terlalu jauh ke atas */
+.envelope.open .letter-content { height: 400px; opacity: 1; transform: translateY(-200px); box-shadow: 0 -10px 30px rgba(0,0,0,0.1); }
 
 .overlay { position:fixed; inset:0; background: rgba(255, 230, 240, 0.98); display:none; z-index: 100; align-items: center; justify-content: center; }
 .overlay.active { display:flex; }
@@ -168,13 +113,11 @@ body{
 <div id="gallerySidebar">
   <span class="close-sidebar" onclick="toggleSidebar()">✖</span>
   <div class="gallery-title">Foto-Foto Kita</div>
-
   <span class="section-name">VPJ</span>
   <div class="gallery-grid">
     <div class="img-frame"><img src="vpj1.jpg"></div>
     <div class="img-frame"><img src="vpj2.jpg"></div>
   </div>
-
   <span class="section-name">MOKOPI</span>
   <div class="gallery-grid">
     <div class="img-frame"><img src="mokopi1.jpg"></div>
@@ -183,7 +126,6 @@ body{
     <div class="img-frame"><img src="mokopi3.jpg"></div>
     <div class="img-frame"><img src="mokopi4.jpg"></div>
   </div>
-
   <span class="section-name">Sumaba</span>
   <div class="gallery-grid">
     <div class="img-frame"><img src="sumaba1.jpg"></div>
@@ -191,7 +133,6 @@ body{
     <div class="img-frame"><img src="sumaba3.jpg"></div>
     <div class="img-frame"><img src="sumaba4.jpg"></div>
   </div>
-
   <span class="section-name">Sesar Lembang Caffe</span>
   <div class="gallery-grid">
     <div class="img-frame"><img src="lembang1.jpg"></div>
@@ -199,7 +140,6 @@ body{
     <div class="img-frame"><img src="lembang3.jpg"></div>
     <div class="img-frame"><img src="lembang4.jpg"></div>
   </div>
-
   <span class="section-name">Braga</span>
   <div class="gallery-grid">
     <div class="img-frame"><img src="braga1.jpg"></div>
@@ -213,9 +153,7 @@ body{
 <div class="page active" id="p1">
   <div class="center">
     <div style="font-weight: 700; color: #ff4d94; margin-bottom: 10px;">Amelia Amanda</div>
-    <div class="foto-wrap">
-      <img src="foto-ayang.jpg" alt="Foto Amelia Amanda">
-    </div>
+    <div class="foto-wrap"><img src="foto-ayang.jpg" alt="Amelia"></div>
     <div style="font-size: 35px;">🐱</div>
     <h1 style="color:#ff4d94; font-size: 1.3rem;">What i think about my pretty girll</h1>
     <button class="btn btn-nav" onclick="go(2)">klik here</button>
@@ -224,9 +162,7 @@ body{
 
 <div class="page" id="p2">
   <div class="center">
-    <div class="foto-wrap">
-      <img src="foto-ayangg.jpg" alt="About Her Photo">
-    </div>
+    <div class="foto-wrap"><img src="foto-ayangg.jpg"></div>
     <h2 style="color:#ff4d94;">About Her</h2>
     <div class="typing" id="aboutText"></div>
   </div>
@@ -265,69 +201,55 @@ body{
 </div>
 
 <div class="letter-overlay" id="letterOverlay">
-  <div class="envelope" id="mainEnvelope" onclick="openLetter()">
-    <div class="letter-content" id="letterBody">
-      <h3 style="color:#ff4d94;">Untuk Amelia Amanda ❤️</h3>
-      <p style="font-size: 14px; color: #555; line-height: 1.6; text-align: left;">
-        Makasih ya udah mau baca sampai sini. Aku cuma mau bilang kalau kehadiran kamu itu hal terindah di hidup aku. <br><br>
-        Tetap jadi Amelia yang aku kenal ya, yang ceria dan selalu bikin aku jatuh cinta setiap harinya.<br><br>
-        <b>I Love You More Than Words Can Say! 🎀</b>
-      </p>
-      <button class="btn" onclick="document.getElementById('letterOverlay').style.display='none'" style="margin-top:15px;">Tutup & Peyuk aku🤗</button>
+  <div class="envelope-wrapper" id="envWrap">
+    <div class="envelope" id="mainEnvelope" onclick="openLetter()">
+      <div class="stamp" id="mainStamp">KLIK</div>
+      <div class="letter-content" id="letterBody">
+        <h3 style="color:#ff4d94;">Untuk Amelia Amanda ❤️</h3>
+        <p style="font-size: 14.5px; color: #555; line-height: 1.7; text-align: left;">
+          Makasih ya udah mau baca sampai sini. Aku cuma mau bilang kalau kehadiran kamu itu hal terindah di hidup aku. <br><br>
+          Tetap jadi Amelia yang aku kenal ya, yang ceria dan selalu bikin aku jatuh cinta setiap harinya.<br><br>
+          <b>I Love You More Than Words Can Say! 🎀</b>
+        </p>
+        <button class="btn" onclick="closeLetter()" style="margin-top:20px; width: 100%;">Tutup & Peyuk aku 🤗</button>
+      </div>
     </div>
   </div>
 </div>
 
 <script>
-// Fungsi untuk membuat elemen background random
 function createBgElements() {
   const container = document.getElementById('bgContainer');
   const pawPath = "M10 5c-1.657 0-3 1.343-3 3s1.343 3 3 3 3-1.343 3-3-1.343-3-3-3zm12 0c-1.657 0-3 1.343-3 3s1.343 3 3 3 3-1.343 3-3-1.343-3-3-3zm-6 8c-3.314 0-6 2.686-6 6s2.686 6 6 6 6-2.686 6-6-2.686-6-6-6z";
   const heartPath = "M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z";
-
   for (let i = 0; i < 25; i++) {
     const isPaw = Math.random() > 0.4;
     const size = Math.floor(Math.random() * 40) + 20;
     const x = Math.random() * 100;
     const y = Math.random() * 100;
     const rot = Math.random() * 360;
-    const opacity = (Math.random() * 0.1) + 0.05;
-    
     const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-    svg.setAttribute("viewBox", "0 0 24 24");
-    svg.classList.add("shape");
-    svg.style.width = size + "px";
-    svg.style.left = x + "%";
-    svg.style.top = y + "%";
-    svg.style.transform = `rotate(${rot}deg)`;
-    svg.style.opacity = opacity;
-    
+    svg.setAttribute("viewBox", "0 0 24 24"); svg.classList.add("shape");
+    svg.style.width = size + "px"; svg.style.left = x + "%"; svg.style.top = y + "%";
+    svg.style.transform = `rotate(${rot}deg)`; svg.style.opacity = (Math.random() * 0.1) + 0.05;
     const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
     path.setAttribute("d", isPaw ? pawPath : heartPath);
-    svg.appendChild(path);
-    container.appendChild(svg);
+    svg.appendChild(path); container.appendChild(svg);
   }
 }
 createBgElements();
-
-window.onblur = () => document.title = "Balik dong, kangen tau! 🥺";
-window.onfocus = () => document.title = "I Love You Amelia 💖";
 
 let typingInterval;
 const hasFinished = { aboutText:false, finalText:false, leftText:false, rightText:false };
 
 function type(id, text) {
-  const el = document.getElementById(id);
-  if (!el) return;
+  const el = document.getElementById(id); if (!el) return;
   clearInterval(typingInterval);
   if (hasFinished[id]) { el.innerHTML = text; if(id==='finalText') document.getElementById('surpriseBtn').style.display='block'; return; }
   el.innerHTML = ''; let i = 0;
   typingInterval = setInterval(() => {
     el.innerHTML += text[i]; i++;
-    if (i >= text.length) { 
-        clearInterval(typingInterval); hasFinished[id] = true; 
-        if(id==='finalText') document.getElementById('surpriseBtn').style.display='block';
-    }
+    if (i >= text.length) { clearInterval(typingInterval); hasFinished[id] = true; if(id==='finalText') document.getElementById('surpriseBtn').style.display='block'; }
     el.scrollTop = el.scrollHeight;
   }, 30);
 }
@@ -337,28 +259,39 @@ function go(n) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.getElementById('p'+n).classList.add('active');
   const toggle = document.getElementById('galleryToggle');
-  if(n > 1) { toggle.style.display = 'flex'; } else { toggle.style.display = 'none'; }
+  toggle.style.display = (n > 1) ? 'flex' : 'none';
   if(n===2) type('aboutText', aboutTextFull);
   if(n===4) type('finalText', finalFull);
 }
 
-function openOverlay(boxId, textId, content) {
-  document.getElementById(boxId).classList.add('active');
-  type(textId, content);
-}
-
-function closeOverlay() {
-  document.querySelectorAll('.overlay').forEach(o => o.classList.remove('active'));
-  clearInterval(typingInterval);
-}
+function openOverlay(boxId, textId, content) { document.getElementById(boxId).classList.add('active'); type(textId, content); }
+function closeOverlay() { document.querySelectorAll('.overlay').forEach(o => o.classList.remove('active')); clearInterval(typingInterval); }
 
 function showLetter() { document.getElementById('letterOverlay').style.display = 'flex'; }
-function openLetter() { document.getElementById('mainEnvelope').classList.add('open'); }
+
+function openLetter() { 
+  const env = document.getElementById('mainEnvelope');
+  const wrap = document.getElementById('envWrap');
+  const stamp = document.getElementById('mainStamp');
+  if(!env.classList.contains('open')) {
+    env.classList.add('open');
+    wrap.classList.add('shifted');
+    stamp.style.display = 'none';
+  }
+}
+
+function closeLetter() {
+  document.getElementById('letterOverlay').style.display = 'none';
+  document.getElementById('mainEnvelope').classList.remove('open');
+  document.getElementById('envWrap').classList.remove('shifted');
+  document.getElementById('mainStamp').style.display = 'flex';
+}
+
 function toggleSidebar() { document.getElementById('gallerySidebar').classList.toggle('open'); }
 
 const aboutTextFull = `Amelia Amanda namanya. Dia adalah wanita paling cantik, imut, dan sweet yang pernah ku temui. Aku sangat beruntung bisa bertemu dengan dia, karna bagiku dia itu wanita pertama setelah ibuku yang bisa membuatku sangat mencintai seorang wanita. Dia itu orang nya lucu, humoris, aktif, dan dia juga pinter lohh. Tapi kadang kalo ada yg bikin mood nya jelek, dia juga suka tiba² marah-marah, suka tiba² sedih jugaa, walau kadang dia sedih dan marah nya bukan karna aku, tapi tetep aku juga yg kena imbas nya huhu T_T. Tapi gak papa aku tetep sayanggg banget sama dia kok. Tambahan dikit dia itu jago buat redain emosi atau sedih nya aku. Tapi aku suka sedih, karna kalo dia lagi emosi dan sedih, aku kadang gak bisa apa apa HUHUHU SEDIHH☹️. Pokok nya aku sayang banget sama diaa Love u Wupp🫶🫶`;
 const leftFull = `Ini bukan berarti aku gak suka sama kamu yaa. Tapi mungkin aku kesel ama gak suka kalo kamu lakuin\n\n1. Kalo kamu tiba tiba ilang gak ngasih kabar apa apa sama aku, dan nanti pas balik lagi, kamu biasa aja kayak gak terjadi apa apa. Padahal aku nungguin kabar dari kamuuu\n\n2. Ini entah kamu tuh sadar atau enggak. kamu tuu kayak suka tiba tiba gak nganggap aku ada gitu suka luas leos sendiri, tanpa sadar kalo ada aku gitu di samping kamu. Terus juga balik lagi sama kayak poin di awal, kadang kamu tu suka gak ngabarin aku, padahal aku suka banget denger apapun kabar dari kamuu. Aku sediii kalo kamu dah kek gitu\n\n3. Kalo kamu cuek ke aku. Kalo ini banyak kasus nya kayak yg tadi aku bilang di kampus, terus juga kalo lagi makan atau lagi bareng aku. Bisa gakkk aku minta inimah, jangan dulu maen hp gitu, kayak nikmatin dulu Quality Time nyaa. Boleh buka hp buat hal penting aja gituu, atau gak kalo kita berdua juga lagi buka hp. jangan kayak lagi ngobrol tiba tiba scroll terus aku nya di diemin☹️☹️.\n\nDah mungkin itu aja sedikit keluh kesah aku hehe`;
-const rightFull = `Emmm aku bingung nii, soal nya banyak bangettt tapi yg paling utama ini sii.\n\n1. Kalo kamu pegang aku, kayak kamu elus aku kamu peyuk aku, kamu pat pat aku. Pokoknya love lenguage aku tuu physical touch banget. Nah aku paling suka kalo kamu gandeng tangan aku kayak di silang gituu hehe, terus juga kalo kamu peyuk aku di motor hehe (tapi jangan di seringin cubitt ituuuu😠☹️☹️)\n\n2. Kalo kamu ceritain atau gak ngabarin hal apa aja yang kamu lagi lakuin, apalagi di tambahin foto. Kayak kamu lagi jajan, kamu lagi kelas, kamu lagi istirahay, kamu lagi apapun itu lah. Nah aku suka banget kalo kamu ceritain kegiatan yang sedang kamu lakuinn, gak akan pernah bosen aku denger nya, sekalipun kegiatan nya random, kalo kamu kabarin ke aku. Aku pasti sukaa\n\n3. Kalo kamu lagi manja sama akuu, kayak kamu tiba tiba pengen di peyuk pengen di pat pat, terus nanya "kamu sayang aku wupp". Aku bakal seneng banget menjawab atau merespon kalo kamu lakuin itu tadi.\n\nMasih banyak sih kalo di sebutin, tapi itu yang paling ku sukaa hehe.`;
+const rightFull = `Emmm aku bingung nii, soal nya banyak bangettt tapi yg paling utama ini sii.\n\n1. Kalo kamu peyuk aku, kamu pat pat aku. Pokoknya love lenguage aku tuu physical touch banget. Nah aku paling suka kalo kamu gandeng tangan aku kayak di silang gituu hehe, terus juga kalo kamu peyuk aku di motor hehe (tapi jangan di seringin cubitt ituuuu😠☹️☹️)\n\n2. Kalo kamu ceritain atau gak ngabarin hal apa aja yang kamu lagi lakuin, apalagi di tambahin foto. Kayak kamu lagi jajan, kamu lagi kelas, kamu lagi istirahay, kamu lagi apapun itu lah. Nah aku suka banget kalo kamu ceritain kegiatan yang sedang kamu lakuinn, gak akan pernah bosen aku denger nya, sekalipun kegiatan nya random, kalo kamu kabarin ke aku. Aku pasti sukaa\n\n3. Kalo kamu lagi manja sama akuu, kayak kamu tiba tiba pengen di peyuk pengen di pat pat, terus nanya "kamu sayang aku wupp". Aku bakal seneng banget menjawab atau merespon kalo kamu lakuin itu tadi.\n\nMasih banyak sih kalo di sebutin, tapi itu yang paling ku sukaa hehe.`;
 const finalFull = `Hmmm intinya dari semua ini. Aku merasa beruntung banget bisa ketemu kamu, bisa bareng sama kamu, bisa cerita bareng kamu, bisa lakuin banyak hal bareng kamuu, karna aku belum pernah dapetin semua ini sebelum sebelum nya😔. Baru kali ini aku bisa mencintai orang sedalam ini, dan sebaliknya aku juga merasa di cintai sama seseorang, yang seseorang nya tuh adalah kamu. Aku cuma mau berterimakasih sama kamu buat semua inii, jangan pernah cape sama akuu yaa, maafin aku kalo aku kadang lakuin hal yg bikin kamu sakit hari. Maaf juga kalo aku belum bisa jadi cowo yg terbaik buat kamu, belum bisa treat kamu seperti apa yg kamu mau, belum bisa ngertiin kamu, dan belum bisa lakuin semua yang kamu mauu. Tapi aku bakal usahain semua itu biar bisa penuhin semua ituu okeee, karna Aku sayang banget sama kamu hehe. trimakasih ya kamu dah hadir di hidup aku, dan mau nerima akuu. LOVE YOU SAYANGGG❤`;
 </script>
 </body>
